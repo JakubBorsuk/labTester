@@ -10,6 +10,7 @@ package labtester;
  * @author 342720539
  */
 public class Computer {
+
     private String serialNum;
     private String manufacturer;
     private int makeYear;
@@ -17,8 +18,8 @@ public class Computer {
     private double processorSpeed;
     private double ramSize;
     private int expYear;
-    
-    public Computer(String sNum, String manu, int mkYr, int prYr, double prcSpd, double ramSz, int expYr){
+
+    public Computer(String sNum, String manu, int mkYr, int prYr, double prcSpd, double ramSz, int expYr) {
         serialNum = sNum;
         manufacturer = manu;
         makeYear = mkYr;
@@ -26,6 +27,38 @@ public class Computer {
         processorSpeed = prcSpd;
         ramSize = ramSz;
         expYear = expYr;
+    }
+
+    public Computer compareSpeed(Computer c) {
+        if (this.processorSpeed >= c.processorSpeed) {
+            return this;
+        }
+        return c;
+    }
+
+    public Computer compareRAM(Computer c) {
+        if (this.ramSize >= c.ramSize) {
+            return this;
+        }
+        return c;
+    }
+    
+    public Computer compareAge(Computer c){
+        if((2018 - this.makeYear) >= (2018 - c.makeYear)){
+            return this;
+        }
+        return c;
+    }
+
+    @Override
+    public String toString() {
+        return "Serial Number:\t" + serialNum
+                + "\nManufacturer:\t" + manufacturer
+                + "\nMake Year:\t" + makeYear
+                + "\nPurchase Year:\t" + purchaseYear
+                + "\nProcessor Speed:\t" + processorSpeed
+                + "\nRAM Size:\t" + ramSize
+                + "\nWarranty Expiry Year:\t" + expYear;
     }
 
     /**
@@ -125,6 +158,5 @@ public class Computer {
     public void setExpYear(int expYear) {
         this.expYear = expYear;
     }
-    
-    
+
 }
