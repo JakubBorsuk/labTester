@@ -35,7 +35,7 @@ public class Computer {
         }
         return c;
     }
-
+    
     public Computer compareRAM(Computer c) {
         if (this.ramSize >= c.ramSize) {
             return this;
@@ -48,6 +48,10 @@ public class Computer {
             return this;
         }
         return c;
+    }
+    
+    public int age(){
+        return (2018-this.makeYear);
     }
 
     @Override
