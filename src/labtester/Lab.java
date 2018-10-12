@@ -78,16 +78,16 @@ public class Lab {
         return i;
     }
     
-    public int compExp(){
-        int numComps = 0;
+    public List compExp(){
+        List <Computer> expiring = new ArrayList <>();
         for(Computer a:computers){
             if(a.getExpYear() == year+1){
-                numComps++;
+                expiring.add(a);
             }
         }
-        return numComps;
+        return expiring;
     }
-
+    
     /**
      * @return the maxCapacity
      */
