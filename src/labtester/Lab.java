@@ -16,6 +16,7 @@ public class Lab {
     private int maxCapacity;
     private List <Computer> computers;
     private int computersInstalled = 0;
+    final private int year = 2018;
     
     public Lab(int capacity){
         maxCapacity = capacity;
@@ -24,7 +25,7 @@ public class Lab {
     
     public void installComputer(String sNum, String manu, int mkYr, int prYr, double prcSpd, double ramSz, int expYr){
         Computer comp = new Computer(sNum,manu,mkYr,prYr,prcSpd,ramSz,expYr);
-        getComputers()[getComputersInstalled()] = comp;
+        computers.add(comp);
         setComputersInstalled(getComputersInstalled() + 1);
     }
     
@@ -55,6 +56,36 @@ public class Lab {
             }
         }
         return getComputers().get(i);
+    }
+    
+    public Computer largestRAM(){
+        int i = 0;
+        for(int a = 0; a<computers.size(); a++){
+            if(computers.get(a).getRamSize() > computers.get(i).getRamSize()){
+                i = a;
+            }
+        }
+        return computers.get(i);
+    }
+    
+    public int numOfManufacturers(String s){
+        int i = 0;
+        for(int a = 0; a<computers.size(); a++){
+            if(computers.get(a).getManufacturer().equals(s)){
+                i++;
+            }
+        }
+        return i;
+    }
+    
+    public int compExp(){
+        int numComps = 0;
+        for(Computer a:computers){
+            if(a.getExpYear() == year+1){
+                numComps++;
+            }
+        }
+        return numComps;
     }
 
     /**
